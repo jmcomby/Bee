@@ -3052,15 +3052,15 @@ int main(int argc, char *argv[]){
 
     int number_of_iterations = 0; //This is an argument passed by the user
 
-    int input_fd;
-    long int *input_data;
+    int input_fd = 0;
+    long int *input_data = NULL;
     struct stat input_sbuf;
-    int *input_spikes;
+    int *input_spikes = NULL;
 
-    int output_fd;
+    int output_fd = 0;
 
     int input_weights_fd;
-    float *input_spikes_exc_w;
+    float *input_spikes_exc_w = NULL;
 
     int states_fd;
 

@@ -392,7 +392,7 @@ def generate_connections():
         liquid_generate_connections()
         return 0
     else:
-        print "Simulator is not initialized!"
+        print("Simulator is not initialized!")
         return 1
 
 
@@ -420,7 +420,7 @@ def process_connections():
         liquid_process_connections()
         return 0
     else:
-        print "Simulator is not initialized!"
+        print("Simulator is not initialized!")
         return 1
 
 
@@ -438,15 +438,15 @@ def output_stats(stats=1):
         output = numpy.empty(4,dtype=numpy.int32)
         liquid_stats(output)
         if stats:
-            print "Total number of neurons:", output[0]+output[1]
-            print "Number of inhibitory neurons:",output[0]
-            print "Number of excitatory neurons:",output[1]
-            print "Number of inhibitory connections:",output[2]
-            print "Number of excitatory connections:",output[3]
+            print("Total number of neurons:", output[0]+output[1])
+            print("Number of inhibitory neurons:",output[0])
+            print("Number of excitatory neurons:",output[1])
+            print("Number of inhibitory connections:",output[2])
+            print("Number of excitatory connections:",output[3])
         return numpy.concatenate(([output[0]+output[1]],output),axis=0)
     else:
         if stats:
-            print "Simulator is not ready!"
+            print("Simulator is not ready!")
 
 
 # Update the simulation (step) and returns the current time
@@ -469,7 +469,7 @@ def updates_sim(input_spikes_exc, input_spikes_inh, input_spikes_exc_w, input_sp
         size_inh = ctypes.c_int32(size_inh)
         return liquid_update(input_spikes_exc,input_spikes_inh,input_spikes_exc_w,input_spikes_inh_w,size_exc,size_inh)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # Reads the output spikes
@@ -483,7 +483,7 @@ def output_sim(number_of_neurons):
         liquid_output(output)
         return numpy.array(output>0)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 def output_sim_full(number_of_neurons):
@@ -495,7 +495,7 @@ def output_sim_full(number_of_neurons):
         liquid_output(output)
         return numpy.array(output)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # Reads output spikes - returns an array with the indices of the neurons who spiked
@@ -508,7 +508,7 @@ def reads_spikes(number_of_neurons):
         total = liquid_spikes(output)
         return output[:total]
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # Reads the membrane voltages
@@ -521,7 +521,7 @@ def output_voltages(number_of_neurons):
         liquid_voltages(output)
         return numpy.array(output)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # Reads the initial membrane voltages
@@ -534,7 +534,7 @@ def output_initial_voltages(number_of_neurons):
         liquid_initial_voltages(output)
         return numpy.array(output)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 def writes_initial_voltages(membrane_init):
     '''
@@ -544,7 +544,7 @@ def writes_initial_voltages(membrane_init):
     if BEE_initialized():
         liquid_initial_voltages(membrane_init)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # Reads the excitatory currents
@@ -557,7 +557,7 @@ def output_exc_currents(number_of_neurons):
         liquid_exc_currents(output)
         return numpy.array(output)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # Reads the inhibitory currents
@@ -570,7 +570,7 @@ def output_inh_currents(number_of_neurons):
         liquid_inh_currents(output)
         return numpy.array(output)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # Reads the pre_i connections
@@ -583,7 +583,7 @@ def output_pre_i_connections(number_of_neurons):
         liquid_pre_i(output)
         return numpy.array(output)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # Reads the pos_i connections
@@ -596,7 +596,7 @@ def output_pos_i_connections(number_of_neurons):
         liquid_pos_i(output)
         return numpy.array(output)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # Reads the pre_i weights
@@ -609,7 +609,7 @@ def output_pre_i_weights(number_of_neurons):
         liquid_w_i(output)
         return numpy.array(output)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # Reads the pre_e connections
@@ -622,7 +622,7 @@ def output_pre_e_connections(number_of_neurons):
         liquid_pre_e(output)
         return numpy.array(output)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # Reads the pos_e connections
@@ -635,7 +635,7 @@ def output_pos_e_connections(number_of_neurons):
         liquid_pos_e(output)
         return numpy.array(output)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # Reads the pre_e weights
@@ -648,7 +648,7 @@ def output_pre_e_weights(number_of_neurons):
         liquid_w_e(output)
         return numpy.array(output)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # Reads the excitatory indices
@@ -661,7 +661,7 @@ def output_exc_indices(number_of_neurons):
         liquid_exc_indices(output)
         return numpy.array(output)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # Reads the inhibitory indices
@@ -674,7 +674,7 @@ def output_inh_indices(number_of_neurons):
         liquid_inh_indices(output)
         return numpy.array(output)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # Reads the noisy currents
@@ -687,7 +687,7 @@ def output_noisy_currents(number_of_neurons):
         liquid_noisy_currents(output)
         return numpy.array(output)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # Reads the constant offset currents
@@ -700,7 +700,7 @@ def output_noisy_offsets(number_of_neurons):
         liquid_noisy_offset(output)
         return numpy.array(output)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 # Writes the constant offset currents
 def writes_noisy_offsets(noisy_offsets):
@@ -711,7 +711,7 @@ def writes_noisy_offsets(noisy_offsets):
     if BEE_initialized():
         liquid_writes_noisy_offset(noisy_offsets)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 # void writes_noisy_offset_currents(float *output){
 #     memcpy(SpkLiq_noisy_offset_currents,output,sizeof(float)*SpkLiq_number_of_neurons);
@@ -727,7 +727,7 @@ def output_refrac_values(number_of_neurons):
         liquid_refrac_values(output)
         return numpy.array(output)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 # Writes the constant offset currents
 def writes_refrac_values(refrac_values):
@@ -738,7 +738,7 @@ def writes_refrac_values(refrac_values):
     if BEE_initialized():
         liquid_writes_refrac_values(refrac_values)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # WRITES connected test
@@ -755,7 +755,7 @@ def control_connected(connected_array):
     if BEE_initialized() and BEE_connected():
         liquid_connected_w(connected_array)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 # Reads connected test
 def output_connected(number_of_neurons):
@@ -768,7 +768,7 @@ def output_connected(number_of_neurons):
         liquid_connected(output)
         return numpy.array(output)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 # WRITES liquid parameters
 def change_parameters(liquid_parameters):
@@ -808,7 +808,7 @@ def change_parameters(liquid_parameters):
 
         change_liquid_parameters(new_parameter_array)
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 # Receives spikes from the numpy.arrays (matrices) and returns the outputs
@@ -823,7 +823,7 @@ def ext_update(exc_spikes, inh_spikes, exc_weights, inh_weights, size_exc, size_
         liquid_ext_update(exc_spikes, inh_spikes, exc_weights, inh_weights, size_exc, size_inh, output, number_of_iterations)
         return output
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 
@@ -850,7 +850,7 @@ def writes_pre_i_connections(pre_i_indices,number_of_connections=None):
         else:
             liquid_writes_pre_i_connections(pre_i_indices,ctypes.c_int32(number_of_connections))
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 def writes_pos_i_connections(pos_i_indices,number_of_connections=None):
@@ -863,7 +863,7 @@ def writes_pos_i_connections(pos_i_indices,number_of_connections=None):
         else:
             liquid_writes_pos_i_connections(pos_i_indices,ctypes.c_int32(number_of_connections))
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 def writes_pre_i_weights(weights,number_of_connections=None):
@@ -876,7 +876,7 @@ def writes_pre_i_weights(weights,number_of_connections=None):
         else:
             liquid_writes_pre_i_weights(weights,ctypes.c_int32(number_of_connections))
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 def writes_pre_e_connections(pre_e_indices,number_of_connections=None):
     '''
@@ -888,7 +888,7 @@ def writes_pre_e_connections(pre_e_indices,number_of_connections=None):
         else:
             liquid_writes_pre_e_connections(pre_e_indices,ctypes.c_int32(number_of_connections))
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 def writes_pos_e_connections(pos_e_indices,number_of_connections=None):
@@ -901,7 +901,7 @@ def writes_pos_e_connections(pos_e_indices,number_of_connections=None):
         else:
             liquid_writes_pos_e_connections(pos_e_indices,ctypes.c_int32(number_of_connections))
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 
 def writes_pre_e_weights(weights,number_of_connections=None):
@@ -914,7 +914,7 @@ def writes_pre_e_weights(weights,number_of_connections=None):
         else:
             liquid_writes_pre_e_weights(weights,ctypes.c_int32(number_of_connections))
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 def read_SpkLiq_number_of_inh_neurons():
     '''
@@ -936,9 +936,9 @@ def writes_exc_indices(exc_indices):
         if len(exc_indices)==read_SpkLiq_number_of_exc_neurons():
             liquid_writes_exc_indices(exc_indices)
         else:
-            print "The input array must have the same size returned by read_SpkLiq_number_of_exc_neurons()"
+            print("The input array must have the same size returned by read_SpkLiq_number_of_exc_neurons()")
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 def writes_inh_indices(inh_indices):
     '''
@@ -948,9 +948,9 @@ def writes_inh_indices(inh_indices):
         if len(inh_indices)==read_SpkLiq_number_of_inh_neurons():
             liquid_writes_inh_indices(inh_indices)
         else:
-            print "The input array must have the same size returned by read_SpkLiq_number_of_inh_neurons()"
+            print("The input array must have the same size returned by read_SpkLiq_number_of_inh_neurons()")
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 def reads_exc_indices():
     '''
@@ -961,7 +961,7 @@ def reads_exc_indices():
         liquid_exc_indices(output)
         return output
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")
 
 def reads_inh_indices():
     '''
@@ -972,4 +972,4 @@ def reads_inh_indices():
         liquid_inh_indices(output)
         return output
     else:
-        print "Simulator is not ready!"
+        print("Simulator is not ready!")

@@ -1,4 +1,6 @@
-# Bee - The Spiking Reservoir (LSM) Simulator
+# Bee - The Spiking Reservoir (LSM) Simulator for Python 3
+
+Adapt BEE.py to python 3.
 
 The **Bee simulator** is an open source [Spiking Neural Network (SNN)](https://en.wikipedia.org/wiki/Spiking_neural_network) simulator, [freely available](https://github.com/ricardodeazambuja/BEE/blob/master/LICENSE.md), specialised in [Liquid State Machine (LSM)](https://en.wikipedia.org/wiki/Liquid_state_machine) systems with its core functions fully implemented in C. 
 
